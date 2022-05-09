@@ -1,0 +1,25 @@
+* {
+    margin: 24px;
+    padding: 8px;
+    list-style: none;
+    box-sizing: border-box;
+}
+:root {
+    --color-text: rgb(65, 65, 65, 1);
+    --color-subs: rgb(145, 148, 150);
+    --color-back: #F9FAFC;
+    --color-primary: #13BAA6;
+    --color-secondary: #4576D6;
+    --font-family: Poppins;
+}
+
+
+.titulo {
+    color: var(--color-primary);
+    font-family: var(--font-family);
+}
+.subTitulo{
+    color: var(--color-text);
+    font-family: var(--font-family);
+
+}
