@@ -1,7 +1,7 @@
 
 // Pedir nombre
 let nombreReserva;
-do{
+do {
     nombreReserva = prompt("¿A nombre de quien reservás la sala?");
     console.log(nombreReserva);
 }while(nombreReserva == "");
@@ -43,17 +43,44 @@ do {
     }
 } while (diaReserva <1 || diaReserva >5 || diaReserva == null || /\D/.test(diaReserva) || diaReserva == "");
 
-// Determianr fecha de reserva
-let horaSeleccionada
-horaSeleccionada = prompt("Elegí la hora que querés reservar la sala pára el día " + diaReserva);
+// Determinar fecha de reserva
 
 
-while (horaSeleccionada <10 || horaSeleccionada >18) {
-    alert ("En el horario que elegiste las oficinas estan cerradas, elegí un horario de 10 a 18.");
-    console.log("En el horario que elegiste las oficinas estan cerradas, elegí un horario de 10 a 18."); 
-    horaSeleccionada = prompt("Elegí la hora que querés reservar la sala pára el día " + diaReserva);
-    
+// Hora de inicio
+let horaInicio
+do {
+    horaInicio = parseInt(prompt("Elegí la hora que querés reservar la sala para el día " + diaReserva));
+    if(horaInicio <10 || horaInicio >18){
+        alert ("En el horario que elegiste las oficinas estan cerradas, elegí un horario de 10 a 18.");
+    }else{
+        document.write(", de " + horaInicio);
+    }
+}while(horaInicio <10 || horaInicio >18 ||horaInicio == null || horaInicio == "" || /\D/.test(horaInicio));
+
+
+// Hora de finalización de la reserva
+let horaFin
+do {
+    horaFin = parseInt(prompt("¿Hasta que hora querés reservar la sala?"));
+    if(horaFin <10 || horaFin >18){
+        alert ("En el horario que elegiste las oficinas estan cerradas, elegí un horario de 10 a 18.");
+    }else if(horaFin <= horaInicio){
+        alert ("El horario que seleccioneste es menor al de inicio");
+        console.log("El horario que seleccioneste es menor al de inicio"); 
+    }else{
+        alert ("¡Listo! \n Reservaste una sala el día " + diaReserva + ", de " + horaInicio + " a " + horaFin);
+        document.write(" a " + horaFin);
+    }
+}while(horaFin <10 || horaFin >18 || horaFin <= horaInicio || horaFin == null || horaFin == "" || /\D/.test(horaFin));
+
+// Tiempo de reserva de la sala
+
+function tiempoReserva (hora1, hora2){
+    let resultado = hora2 - hora1;
+    return resultado;
 }
-    alert ("¡Listo! \n Reservaste una sala el día " + diaReserva + " en el horario de las " + horaSeleccionada);
-    document.write(" en el horario de las " + horaSeleccionada);
-    
+
+let resultado = tiempoReserva (horaInicio, horaFin);
+
+alert("El tiempo de reserva de la sala es de " + resultado + " horas")
+document.write("El tiempo de reserva de la sala es de " + resultado + " horas");
