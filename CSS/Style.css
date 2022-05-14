@@ -1,25 +1,155 @@
 * {
-    margin: 24px;
-    padding: 8px;
+    margin: 0;
+    padding: 0;
     list-style: none;
     box-sizing: border-box;
+    font-family: var(--font-family);
 }
 :root {
     --color-text: rgb(65, 65, 65, 1);
     --color-subs: rgb(145, 148, 150);
     --color-back: #F9FAFC;
+    --color-white: #FFFFFF;
     --color-primary: #13BAA6;
     --color-secondary: #4576D6;
-    --font-family: Poppins;
+    --font-family: 'Poppins', sans-serif;
 }
 
 
-.titulo {
-    color: var(--color-primary);
-    font-family: var(--font-family);
+/* HEADER */
+.header {
+    /*position: absolute; */
+    display: flex;
+    height: 100px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    box-shadow: 0px 1px 2px rgba(223, 223, 223, 0.5);
 }
-.subTitulo{
-    color: var(--color-text);
-    font-family: var(--font-family);
+    .container_logo {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        background-color: var(--color-primary);
+        width: 423px;
+        height: 100px;
+        margin-top: 10px;
+        margin: 0;
+        padding: 18px;
+    }
+    .l_openRoom{
+        display: block;
+        align-self: auto;
+    }
 
+/*Nav items*/
+    .navbar1 {
+        display: block;
+        margin-left: 100px;
+        height: 100px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .navbar2 {
+        display: block;
+        margin-left: auto;
+        height: 100px;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    .list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150%;
+    }
+    .list2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 27px;
+    }
+    .list > li {
+        display: inline-block;
+        align-self: auto;
+    }
+    .list_item_inicio, .list_item_salas, .list_item_reservas{
+        display: block;
+        align-self: auto;
+        width: 9em;
+        text-align: center;
+        color: var(--color-text-header);
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 10px 17px;
+        transition: 0.2s ease all;
+    }
+    .list_item_inicio{
+        color: var(--color-primary);
+        border-bottom: 5px solid var(--color-primary);
+    }
+    .list > li > a:hover {
+        color: var(--color-primary);
+        
+    }
+    .list_item_notif {
+        display: block;
+        align-self: auto;;
+        padding: 28px 17px;
+        transition: 0.1s ease all;
+    }
+    .list_item_profile{
+        display: block;
+        align-self: auto;;
+        padding: 28px 17px;
+        fill: var(--color-text);
+        transition: 0.1s ease all;
+    }
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--color-back);
+}
+
+.box{
+    position: absolute;
+    width: 521px;
+    height: 514px;
+    left: 509px;
+    top: 178px;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-subs);
+    padding: 46px;
+}
+
+
+
+
+.boton {
+    background-color: var(--color-secondary);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 211px;
+    height: 42px;
+    border-radius: 8px;
+}
+.boton > h4 {
+    padding: 10px 32px;
+    font-size: 16px;
+    color: var(--color-white);
 }
