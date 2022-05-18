@@ -1,0 +1,169 @@
+/*Nav items*/
+.navbar1 {
+    display: block;
+    margin-left: 100px;
+    height: 100px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.navbar2 {
+    display: block;
+    margin-left: auto;
+    height: 100px;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150%;
+}
+.list2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 27px;
+}
+.list > li {
+    display: inline-block;
+    align-self: auto;
+}
+.list_item_inicio, .list_item_salas, .list_item_reservas{
+    display: block;
+    align-self: auto;
+    width: 9em;
+    text-align: center;
+    color: var(--color-text-header);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 17px;
+    transition: 0.2s ease all;
+}
+.list > li > a:hover {
+    color: var(--color-primary);
+    
+}
+.list_item_notif {
+    display: block;
+    align-self: auto;;
+    padding: 28px 17px;
+    transition: 0.1s ease all;
+}
+.list_item_profile{
+    display: block;
+    align-self: auto;;
+    padding: 28px 17px;
+    fill: var(--color-text);
+    transition: 0.1s ease all;
+}
+.list_item_inicio{
+    color: var(--color-primary);
+    border-bottom: 5px solid var(--color-primary);
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    position: flex;
+    width: 521px;
+    height: auto;
+    left: 509px;
+    top: 178px;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px 1px 1px 10px;
+    border-color: var(--color-primary);
+    padding: 40px 40px 40px 30px;
+    margin: 3%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+} 
+
+.box > h1 {
+    padding: 0px 0px 32px 0px;
+}
+.input_form{
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.iconForm {
+    display: flex;
+    padding: 8px;
+}
+.labelIcon{
+    padding: 8px;
+}
+.fdate{
+    padding: 8px;
+    border-radius: 8px;
+    border-color: var(--color-subs);
+    color: var(--color-subs);
+    width: 396px;
+    height: 40px;
+    cursor: pointer;
+}
+.ftime{
+    padding: 8px;
+    margin: 0px 8px 0px 0px;
+    border-radius: 8px;
+    border-color: var(--color-subs);
+    color: var(--color-subs);
+    width: 190px;
+    height: 40px;
+    cursor: pointer;
+}
+.guests{
+    padding: 8px;
+    border-radius: 8px;
+    border-color: var(--color-subs);
+    color: var(--color-subs);
+    width: 80px;
+    height: 40px;
+}
+.proyector{
+    padding: 8px;
+    margin: 8px;
+    border-color: var(--color-subs);
+    color: var(--color-subs);
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.subtitle_box{
+    padding: 32px 0px;
+}
+.subtitle {
+    font-size: 16px;
+    color: var(--color-secondary);
+}
+.subtitleBajada{
+    font-size: 12px;
+    color: var(--color-text);
+}
+
+.boton_box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.botonReserva {
+    display: flex;
+    background-color: var(--color-secondary);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 211px;
+    height: 42px;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-size: 16px;
+    color: var(--color-white);
+}

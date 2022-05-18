@@ -14,8 +14,6 @@
     --color-secondary: #4576D6;
     --font-family: 'Poppins', sans-serif;
 }
-
-
 /* HEADER */
 .header {
     /*position: absolute; */
@@ -41,74 +39,6 @@
         display: block;
         align-self: auto;
     }
-
-/*Nav items*/
-    .navbar1 {
-        display: block;
-        margin-left: 100px;
-        height: 100px;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    .navbar2 {
-        display: block;
-        margin-left: auto;
-        height: 100px;
-        justify-content: flex-end;
-        align-items: flex-start;
-    }
-    .list{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 150%;
-    }
-    .list2{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        padding: 27px;
-    }
-    .list > li {
-        display: inline-block;
-        align-self: auto;
-    }
-    .list_item_inicio, .list_item_salas, .list_item_reservas{
-        display: block;
-        align-self: auto;
-        width: 9em;
-        text-align: center;
-        color: var(--color-text-header);
-        font-weight: 700;
-        font-size: 16px;
-        text-decoration: none;
-        padding: 10px 17px;
-        transition: 0.2s ease all;
-    }
-    .list_item_inicio{
-        color: var(--color-primary);
-        border-bottom: 5px solid var(--color-primary);
-    }
-    .list > li > a:hover {
-        color: var(--color-primary);
-        
-    }
-    .list_item_notif {
-        display: block;
-        align-self: auto;;
-        padding: 28px 17px;
-        transition: 0.1s ease all;
-    }
-    .list_item_profile{
-        display: block;
-        align-self: auto;;
-        padding: 28px 17px;
-        fill: var(--color-text);
-        transition: 0.1s ease all;
-    }
-
-
 body {
     display: flex;
     min-height: 100vh;
@@ -120,36 +50,4 @@ body {
     font-size: 14px;
     line-height: 1.5;
     background: var(--color-back);
-}
-
-.box{
-    position: absolute;
-    width: 521px;
-    height: 514px;
-    left: 509px;
-    top: 178px;
-    border-radius: 12px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--color-subs);
-    padding: 46px;
-}
-
-
-
-
-.boton {
-    background-color: var(--color-secondary);
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 211px;
-    height: 42px;
-    border-radius: 8px;
-}
-.boton > h4 {
-    padding: 10px 32px;
-    font-size: 16px;
-    color: var(--color-white);
 }

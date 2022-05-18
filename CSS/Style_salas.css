@@ -1,0 +1,98 @@
+
+/*Nav items*/
+    .navbar1 {
+        display: block;
+        margin-left: 100px;
+        height: 100px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .navbar2 {
+        display: block;
+        margin-left: auto;
+        height: 100px;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    .list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150%;
+    }
+    .list2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 27px;
+    }
+    .list > li {
+        display: inline-block;
+        align-self: auto;
+    }
+    .list_item_inicio, .list_item_salas, .list_item_reservas{
+        display: block;
+        align-self: auto;
+        width: 9em;
+        text-align: center;
+        color: var(--color-text-header);
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 10px 17px;
+        transition: 0.2s ease all;
+    }
+    .list_item_salas{
+        color: var(--color-primary);
+        border-bottom: 5px solid var(--color-primary);
+    }
+    .list > li > a:hover {
+        color: var(--color-primary);
+        
+    }
+    .list_item_notif {
+        display: block;
+        align-self: auto;;
+        padding: 28px 17px;
+        transition: 0.1s ease all;
+    }
+    .list_item_profile{
+        display: block;
+        align-self: auto;;
+        padding: 28px 17px;
+        fill: var(--color-text);
+        transition: 0.1s ease all;
+    }
+body {
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--color-back);
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    position: flex;
+    width: 521px;
+    height: auto;
+    left: 509px;
+    top: 178px;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px 1px 1px 10px;
+    border-color: var(--color-primary);
+    padding: 40px 40px 40px 30px;
+    margin: 3%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+} 
