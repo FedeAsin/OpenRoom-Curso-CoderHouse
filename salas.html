@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenRoom | Inicio </title>
+    <title>OpenRoom | Salas</title>
     <link rel="stylesheet" href="CSS/Style.css">
-    <link rel="stylesheet" href="CSS/Style_inicio.css">
+    <link rel="stylesheet" href="CSS/Style_salas.css">
     <link rel="icon" href="img/isologo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,43 +48,12 @@
     </header>
     <main>
         <div class="box">
-            <div class="linea"></div>
-            <h1>Reservá tu sala, rápido</h1>
-            <div action="">
-                <div class="input_form">
-                <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" alt="Fecha de reserva"></label>
-                    <input type="date" class="fdate" name="fdate" placeholder="¿Cúando?" required><br><br>
-                </div>
-                <div class="input_form">
-                <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
-                    <input type="time" class="ftime" name="ftime_from" placeholder="Desde" min="00:00" max="23:30"  required>   
-                <label for="ftime_until"></label>
-                    <input type="time" class="ftime" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" required><br><br>
-                </div>
-                <div class="input_form"> 
-                <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
-                <p class="labelIcon">Cantidad de invitados</p>
-                    <input type="number" class="guests" name="guests" min="1" max="15"><br><br>
-                </div> 
-                <div class="input_form"> 
-                <label for="proyector"><img src="img/VideoCamera.svg" class="iconForm" alt=""></label>
-                <p class="labelIcon">Proyector</p>
-                    <input type="checkbox" class="proyector" name="proyector"><br><br>
-                </div>
-            </form>
-            <div class="subtitle_box">
-                <h2 class="subtitle">¿Y la sala?</h2>
-                <h3 class="subtitleBajada">No te preocupes, buscaremos la mejor sala según tus preferencias.</h3>
-            </div>
-            <div class="boton_box">
-                <a href="" type="submit" class="botonReserva">Reservar sala</a>
-            </div>
+            
         </div>
     </main>
-    <script src="JS/Script1.js"></script>
+    <script src="JS/salas.js"></script>
+    <script src="JS/Script_creacion_sala.js"></script>
     <!--
-       
     -->
 </body>
 </html>
-
