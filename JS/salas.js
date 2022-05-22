@@ -1,5 +1,5 @@
 // Este es el array donde se guardan las salas creadas
-const salasGuardadas = new Array();
+const salasGuardadas = [];
 // Creaccion de salas
 class Sala {
 

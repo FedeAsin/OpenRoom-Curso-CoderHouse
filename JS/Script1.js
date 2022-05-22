@@ -25,13 +25,13 @@ function reservaPorNombre (nombre){
         do {
             nombreReserva = prompt("¿A nombre de quien reservás la sala?");
             console.log(nombreReserva);
-        }while(nombreReserva == "");
+        }while(nombreReserva == "" || isNaN(nombreReserva));
             document.write("Hola " + nombreReserva);
     return nombreReserva;
     }
 
- // Agendar dia de la semana
- function fechaReserva (dia){
+// Agendar dia de la semana
+function fechaReserva (dia){
     let diaReserva = dia;
     let respuesta;
         do {
@@ -90,12 +90,12 @@ function reservaPorNombre (nombre){
     }    
 
 
-    // Hora de inicio
-    function tiempoInicio (hora1){
+// Hora de inicio
+function tiempoInicio (hora1){
         let horaInicio = hora1;
             do {
                 horaInicio = parseInt(prompt("Elegí la hora que querés reservar la sala para el día " + diaReserva));
-                if(horaInicio <10 || horaInicio >=18){
+                if(horaInicio <10 || horaInicio >=18 ||horaInicio == null || horaInicio == "" || /\D/.test(horaInicio)){
                     alert ("En el horario que elegiste las oficinas estan cerradas, elegí un horario de 10 a 18.");
                 }else{
                     document.write(", de " + horaInicio);
@@ -105,7 +105,7 @@ function reservaPorNombre (nombre){
         }
 
     // Hora de finalización de la reserva
-    function tiempoFin (hora2) {
+function tiempoFin (hora2) {
         let horaFin = hora2;
             do {
                 horaFin = parseInt(prompt("¿Hasta que hora querés reservar la sala?"));

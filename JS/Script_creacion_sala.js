@@ -140,7 +140,7 @@ function pedirDatos_sala(){
 
 
 
-    //Borrar salas
+//Borrar salas
     function borrar_salas(){
 
     }
