@@ -51,26 +51,31 @@
             <div class="linea"></div>
             <h1>Reservá tu sala, rápido</h1>
             <div action="">
-                <div class="input_form">
+                <!-- <div class="input_form">
                 <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" alt="Fecha de reserva"></label>
                     <input type="date" class="fdate" name="fdate" placeholder="¿Cúando?" required><br><br>
-                </div>
-                <div class="input_form">
+                </div> -->
+                <!-- <div class="input_form">
                 <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
                     <input type="time" class="ftime" name="ftime_from" placeholder="Desde" min="00:00" max="23:30"  required>   
                 <label for="ftime_until"></label>
                     <input type="time" class="ftime" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" required><br><br>
-                </div>
+                </div> -->
                 <div class="input_form"> 
                 <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
                 <p class="labelIcon">Cantidad de invitados</p>
-                    <input type="number" class="guests" name="guests" min="1" max="15"><br><br>
+                    <input type="number" class="input_select" name="guests" min="1" max="20"><br><br>
                 </div> 
                 <div class="input_form"> 
+                    <label for="piso"><img src="img/MapPin.svg" class="iconForm" alt="Ubicación de la sala"></label>
+                    <p class="labelIcon">Ubicación de la sala</p>
+                        <input type="number" class="input_select" name="piso" min="1" max="15"><br><br>
+                    </div> 
+                <!-- <div class="input_form"> 
                 <label for="proyector"><img src="img/VideoCamera.svg" class="iconForm" alt=""></label>
                 <p class="labelIcon">Proyector</p>
                     <input type="checkbox" class="proyector" name="proyector"><br><br>
-                </div>
+                </div> -->
             </form>
             <div class="subtitle_box">
                 <h2 class="subtitle">¿Y la sala?</h2>
@@ -81,6 +86,8 @@
             </div>
         </div>
     </main>
+    <script src="JS/salas.js"></script>
+    <script src="JS/salasReservadas.js"></script>
     <script src="JS/Script1.js"></script>
     <!--
        
