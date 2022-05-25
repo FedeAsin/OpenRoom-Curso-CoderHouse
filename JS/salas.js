@@ -1,54 +1,38 @@
 // Este es el array donde se guardan las salas creadas
-const salasGuardadas = [];
+let salasGuardadas = [];
+
+
 // Creaccion de salas
 class Sala {
 
     constructor (nombre, capacidad, piso){
-        this.nombre = nombre;
+        this.nombre = (nombre).toUpperCase();
         this.capacidad = parseInt(capacidad);
         this.piso = parseInt(piso);
-        this.proyector = false;
+        // this.proyector = false;
     }
     mostrar_info(){
         return this.nombre;
     }
-   
-    mostrar_proyector(){
-        if(this.proyector == false){
-            return "No";
-        }else{
-            return "Sí";
-        }
-    }
+
+    
 
     mostrar_infoCompleta(){
-        return this.nombre + "<br>"
-        + "Capacidad: " + this.capacidad + " personas" + " - " + "Proyector: " + this.proyector + "<br>"
-        + "Ubicado en el piso N° " + this.piso;
+        return (this.nombre + "\n" + "Capacidad: " + this.capacidad + " personas" + "\n" + "Ubicado en el piso N° " + this.piso + "\n\n");
     }
-
-
-    set_nombre(nuevo_nombre){
-        this.nombre = nuevo_nombre;
-    }
-
-    //Cambiar proyector a false
-    set_proyector(cambio_proyector){
-        this.proyector = cambio_proyector;
-    }
-
 
 }
 
 
+    // mostrar_proyector(){
+    //     if(this.proyector == false){
+    //         return "No";
+    //     }else{
+    //         return "Sí";
+    //     }
+    // }
 
-
-
-
-
-/* ¿Como hago para al reservar un horario y un dia para la sala quede guardada la info?
- Al reservar un lunes de 10 a 11 la sala creada deberia bloquear ese dato.... como lo hago?
- 
- 
- 
- */
+    // //Cambiar proyector a false
+    // set_proyector(cambio_proyector){
+    //     this.proyector = cambio_proyector;
+    // }

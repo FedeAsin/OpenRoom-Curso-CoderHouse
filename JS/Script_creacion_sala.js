@@ -1,5 +1,7 @@
+
 // Inicio
 let completar = true;
+
 while(completar){
         let instrucciones = "Seleccioná que querés hacer: \n"
         instrucciones += "\n 1. 🆕 Crear sala";
@@ -15,10 +17,13 @@ while(completar){
                     pedirDatos_sala();
                     break;
                 case "2":
+                    //Ver salas creadas
                     Salas_creadas();
                     break;
                 case "3":
                     //Borrar salas
+                    borrar_salas();
+                    break;
                 case null:
                     completar = false;
                     break;
@@ -41,34 +46,36 @@ function pedirDatos_sala(){
         piso = validarN(piso, 15,"El edificio tiene 15 pisos: \n\n¿En que piso esta la sala?", "❗El edificio tiene 15 pisos, elegí otro piso","❗Elegí un piso entre 1 y 15");
             
         let capacidad;
-        capacidad = validarN(capacidad, 20, "La capacidad máxima es 20 personas: \n\n¿Cuantas personas pueden entrar?", "❗La salas solo tienen capacidad hasta 20 personas", "❗La sala se debe reservar, minimamente, para 1 persona");
+        capacidad = validarN(capacidad, 20, "La capacidad máxima es de 20 personas: \n\n¿Cuantas personas pueden entrar?", "❗La salas solo tienen capacidad hasta 20 personas", "❗La sala se debe reservar, minimamente, para 1 persona");
 
-        let proyector 
-        proyector = proyector_pregunta();
-
-        // Validar datos cargados
-
+    // Funcion para validar datos cargados
+    let funcionDeValidacion = ((nombre, capacidad, piso) => {
         if (validarDatos(nombre) && validarDatos(capacidad) && validarDatos(piso)){
 
-            const nueva_sala = new Sala(nombre, capacidad, piso, proyector);
+            const nueva_sala = new Sala(nombre, capacidad, piso);
 
                     let confirmar_sala = crear_confirmacion(nueva_sala);
                     if (confirmar_sala) {
+
                         salasGuardadas.push(nueva_sala);
                         console.log(salasGuardadas);
                         return escribirEn_documento(nueva_sala);
+
                     }else{
                         pedirDatos_sala();
                         console.log(salasGuardadas);
                     }
-        } 
+        }
+    });
+        funcionDeValidacion(nombre, capacidad, piso);
     }
+
 
 //Valida el nombre
     function validarS(){
         let nombre;
         do{
-            nombre = prompt("¿Cual va a ser el nombre de la sala?").toUpperCase();
+            nombre = prompt("¿Cual va a ser el nombre de la sala?").toUpperCase().trim();
             if(!nombre){
             alert ("Ingresá un nombre");
             }
@@ -94,27 +101,14 @@ function pedirDatos_sala(){
             }while (valor > condicionA || valor < 1 || valor == "" /*|| valor == null*/ || /\D/.test(valor));
             
         return valor;
-    }
-//determinar el valor del proyector
-    function proyector_pregunta (){
-        let tieneProyector = confirm("¿Tiene proyector?");
-            if(tieneProyector){
-                //alert ("Tiene proyector");
-                return true;
-            }
-            else{
-                //alert ("No tiene proyector");
-                return false;
-            }
-        }        
-
-//Confirmación de datos cargados        
+    }         
+// Crea la confirmacion de los datos cargados
     function crear_confirmacion(datoSala){
         let mensaje = "¿Los datos cargados son correctos? \n";
         mensaje += "\n Nombre: " + datoSala.nombre;
         mensaje += "\n Piso: " + datoSala.piso;
         mensaje += "\n Capacidad: " + datoSala.capacidad + " personas";
-        mensaje += "\n ¿Tiene proyector?: " + datoSala.proyector;
+        // mensaje += "\n ¿Tiene proyector?: " + datoSala.proyector;
 
         let respuesta = confirm(mensaje);
 
@@ -133,38 +127,82 @@ function pedirDatos_sala(){
     }
 //Escribir salas en el documento
     function escribirEn_documento(salaI){
-        //alert ("Sala " + salaI.mostrar_info() + " creada🤘");
         document.write (salaI.mostrar_infoCompleta() + "<br>");
         console.log(salaI);
-}
-
-
-
-//Borrar salas
-    function borrar_salas(){
-
+        cambiarLaInfo(salaI);
     }
 
 }
-
 //Ver salas creadas
 function Salas_creadas(){
 
-    if(buscarSalas(true)){
+    if(buscarSalas()){
+        alert(mostrar_salas());
+    }     
+}
 
-        alert(salasGuardadas);
-    }
+//Borrar salas
+function borrar_salas(){
+        
+    if(buscarSalas()){
+        let msj = mostrar_salas();
 
-    function buscarSalas(){
+        let aBorrar = prompt(msj += "¿Que sala querés borrar?").toUpperCase().trim();
+
+        if (aBorrar){
     
-        if (salasGuardadas.length == 0){
-
-            alert("Por el momento no hay salas creadas");
-
-            return false;
-
-        }else{
-            return true;
-        }
+            let salaSeleccionada = salasGuardadas.find((salaB) => salaB.nombre == aBorrar);
+    
+                if(salaSeleccionada){
+    
+                    let msj = confirm("¿Querés borrar la sala "+ salaSeleccionada.nombre + "?");
+                    if (msj){
+                    
+                        salasGuardadas = salasGuardadas.filter((salaB) => salaB.nombre != aBorrar ) ;
+    
+                        alert("Sala borrada");
+                    }
+                        
+                }
+        } 
     }
 }
+
+//Buscar las salas
+function buscarSalas(){
+    
+    if (salasGuardadas.length == 0){
+
+        alert("Por el momento no hay salas creadas");
+
+        return false;
+
+    }
+    return true;
+}
+
+//muestra la info de las salas creadas
+function mostrar_salas(){
+    let haySalas = "Las salas de reuniones en este edificio son: \n\n";
+    salasGuardadas.map((sala) => {
+            haySalas += sala.mostrar_infoCompleta();
+     })
+     return haySalas;
+}
+
+
+function cambiarLaInfo (salaX){
+
+    let cambioNombre = document.querySelector("#nameSala");
+    cambioNombre.innerHTML = salaX.nombre;
+    document.nameSala.appendChild(cambioNombre);
+
+    let cambioCapacidad = document.querySelector("#capacitySala");
+    cambioCapacidad.innerHTML = salaX.capacidad;
+    document.capacitySala.appendChild(cambioCapacidad);
+
+    let cambioPiso = document.querySelector("#locationSala");
+    cambioPiso.innerHTML = salaX.piso;
+    document.locationSala.appendChild(cambioPiso);
+}
+
