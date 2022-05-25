@@ -86,6 +86,7 @@ main{
 
 .box > h1 {
     padding: 0px 0px 32px 0px;
+    font-size: 1.8rem;
 }
 .input_form{
     padding: 8px;
@@ -119,7 +120,7 @@ main{
     height: 40px;
     cursor: pointer;
 }
-.guests{
+.input_select{
     padding: 8px;
     border-radius: 8px;
     border-color: var(--color-subs);
