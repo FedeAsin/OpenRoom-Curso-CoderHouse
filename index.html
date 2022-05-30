@@ -48,35 +48,64 @@
     </header>
     <main>
         <div class="box">
-            <div class="linea"></div>
             <h1>Reservá tu sala, rápido</h1>
             <div action="">
-                <!-- <div class="input_form">
-                <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" alt="Fecha de reserva"></label>
-                    <input type="date" class="fdate" name="fdate" placeholder="¿Cúando?" required><br><br>
-                </div> -->
-                <!-- <div class="input_form">
+                <div class="input_form">
+
+                <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" ="Fecha de reserva"></label> 
+                <p class="labelIcon">Día de reserva</p>
+                    <div class="radioDays">
+                        <div class="radioButton">
+                            <input type="radio" id="dLunes" class="rDay" name="fdate" value="Lunes" required>
+                            <label for="dLunes" class="rDay">Lunes</label><br>
+                        </div>
+                        <div class="radioButton">
+                            <input type="radio" id="dMartes" class="rDay" name="fdate" value= "Martes" required>
+                            <label for="dMartes" class="rDay">Martes</label><br>
+                        </div>
+                        <div class="radioButton">    
+                            <input type="radio" id="dMiercoles" class="rDay" name="fdate" value= "Miercoles" required>
+                            <label for="dMiercoles" class="rDay">Miercoles</label><br>
+                        </div>
+                        <div class="radioButton">   
+                            <input type="radio" id="dJueves" class="rDay" name="fdate" value= "Jueves" required>
+                            <label for="dJueves" class="rDay">Jueves</label><br>
+                        </div>
+                        <div class="radioButton">
+                            <input type="radio" id="dViernes" class="rDay" name="fdate" value= "Viernes" required>
+                            <label for="dViernes" class="rDay">Viernes</label><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input_form">
                 <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
-                    <input type="time" class="ftime" name="ftime_from" placeholder="Desde" min="00:00" max="23:30"  required>   
+                <p class="labelIcon">Hora de reserva</p>
+
+                    <input type="time" class="ftime" name="ftime_from" placeholder="Desde" min="00:00" max="23:30" list="ltime_from" required> 
+                    <datalist id="ltime_from">
+                        <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
+                    </datalist>
+
                 <label for="ftime_until"></label>
-                    <input type="time" class="ftime" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" required><br><br>
-                </div> -->
+                    <input type="time" class="ftime" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" list="ltime_until"required><br><br>
+                    <datalist id="ltime_until">
+                        <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
+                    </datalist>
+                </div>
+
                 <div class="input_form"> 
                 <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
                 <p class="labelIcon">Cantidad de invitados</p>
-                    <input type="number" class="input_select" name="guests" min="1" max="20"><br><br>
+                    <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub">Personas</p>
                 </div> 
                 <div class="input_form"> 
                     <label for="piso"><img src="img/MapPin.svg" class="iconForm" alt="Ubicación de la sala"></label>
                     <p class="labelIcon">Ubicación de la sala</p>
-                        <input type="number" class="input_select" name="piso" min="1" max="15"><br><br>
+                        <input type="number" class="input_select" name="piso" min="1" max="15"><p class="labelIcon_sub">Piso</p>
                     </div> 
-                <!-- <div class="input_form"> 
-                <label for="proyector"><img src="img/VideoCamera.svg" class="iconForm" alt=""></label>
-                <p class="labelIcon">Proyector</p>
-                    <input type="checkbox" class="proyector" name="proyector"><br><br>
-                </div> -->
             </form>
+            
             <div class="subtitle_box">
                 <h2 class="subtitle">¿Y la sala?</h2>
                 <h3 class="subtitleBajada">No te preocupes, buscaremos la mejor sala según tus preferencias.</h3>

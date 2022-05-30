@@ -47,18 +47,39 @@
             </nav>
     </header>
     <main>
-        <div class="box">
-            <h2 id="nameSala">Nombre</h2>
-            <h3 id="capacitySala">Capacidad</h3>
-            <h3 id="locationSala">Piso</h3>
+
+        <div class="box">   
+            <form action="">
+                <h2>Crear sala</h2>
+                <div class="input_form"> 
+                    <label for="name">
+                    <p class="labelIcon">Nombre de sala</p>
+                        <input type="text" class="input_select" id="input_name" name="name">
+                    </label>
+                </div> 
+                <div class="input_form"> 
+                    <label for="piso">
+                    <p class="labelIcon">¿En que piso esta la sala?</p>
+                        <input type="number" class="input_select" id="input_location" name="piso" min="1" max="15">
+                    </label>
+                </div>
+                <div class="input_form"> 
+                    <label for="guests">
+                    <p class="labelIcon">Capacidad de la sala</p>
+                        <input type="number" class="input_select" id="input_guests" name="guests" min="1" max="20">
+                    </label>
+                </div> 
+                <div class="boton_box">
+                    <button type="submit" id="btn" class="btnC">Crear sala</button>
+                </div>
+            </form>
         </div>
-        
-        <div class="box_new">
-            <a href="" type="submit" class="boton_new">
-                <img src="img/Plus.svg" id="boton_new" alt="Crear sala" height="60px" width="60px">
-            </a>
-        </div>
-        
+
+
+        <div id="salasCreadas">
+            <h1 id="title"> Salas creadas</h1>
+            <div id="mostrarSalas"></div>
+            </div>
 
     </main>
 
