@@ -190,44 +190,45 @@ function mostrar_salas(){
 
 
 
+////////////////////////////////////////////////////
 
 /////CREADOR DE CARDS DE SALAS CREADAS/////
 
 
 function creadoraDe_Div (div){
 
-            let mostrarSalas = document.getElementById ("mostrarSalas");
+    let mostrarSalas = document.getElementById ("mostrarSalas");
 
-            addElemento(div);
+    addElemento(div);
 
-            function addElemento (b){
+    function addElemento (b){
 
-                let box = document.createElement("div");
+        let box = document.createElement("div");
 
-                let nombreS = document.createElement("h2");
-                nombreS.textContent = b.nombre;
+        let nombreS = document.createElement("h2");
+        nombreS.textContent = b.nombre;
 
-                let capacidadS = document.createElement("h3");
-                capacidadS.textContent = b.capacidad + " personas";
+        let capacidadS = document.createElement("h3");
+        capacidadS.textContent = b.capacidad + " personas";
 
-                let ubicacionS = document.createElement("h3");
-                ubicacionS.textContent = b.piso + " piso";
+        let ubicacionS = document.createElement("h3");
+        ubicacionS.textContent = b.piso + " piso";
 
-                box.appendChild(nombreS);
-                box.appendChild(capacidadS);
-                box.appendChild(ubicacionS);
+        box.appendChild(nombreS);
+        box.appendChild(capacidadS);
+        box.appendChild(ubicacionS);
 
-                mostrarSalas.appendChild(box);
+        mostrarSalas.appendChild(box);
 
-                
-                box.addEventListener("mouseover", ()=>{
-                        box.style.cursor = "pointer";
-                        box.style.backgroundColor = "#F9FAFC";     
-                });
-                box.addEventListener("mouseout", ()=>{
-                    box.style.backgroundColor = "#FFFFFF";     
-                });
-            }
+        
+        box.addEventListener("mouseover", ()=>{
+                box.style.cursor = "pointer";
+                box.style.backgroundColor = "#F9FAFC";     
+        });
+        box.addEventListener("mouseout", ()=>{
+            box.style.backgroundColor = "#FFFFFF";     
+        });
+    }
 }
 
 function creadorDe_Salas (){
@@ -235,8 +236,6 @@ function creadorDe_Salas (){
 }
 
 
-
-////////////////////////////////////////////////////
 
 ////////////////PRUEBA FORMULARIO///////////////////
 
