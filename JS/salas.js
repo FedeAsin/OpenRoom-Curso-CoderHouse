@@ -1,7 +1,6 @@
 // Este es el array donde se guardan las salas creadas
 let salasGuardadas = [];
 
-
 // Creaccion de salas
 class Sala {
 
@@ -24,15 +23,10 @@ class Sala {
 }
 
 
-    // mostrar_proyector(){
-    //     if(this.proyector == false){
-    //         return "No";
-    //     }else{
-    //         return "Sí";
-    //     }
-    // }
 
-    // //Cambiar proyector a false
-    // set_proyector(cambio_proyector){
-    //     this.proyector = cambio_proyector;
-    // }
+let sala1 = new Sala ("Azul", 10, 1);
+let sala2 = new Sala ("Rojo", 12, 2);
+
+
+salasGuardadas.push(sala1);
+salasGuardadas.push(sala2);

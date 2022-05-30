@@ -66,10 +66,10 @@ function reservaPorNombre (nombre){
     }
 
 // Agendar dia de la semana
-function fechaReserva (dia){
-    let diaReserva = dia;
-    let respuesta;
+function fechaReserva (){
+    let diaReserva;
         do {
+            let respuesta;
             diaReserva = parseInt(prompt("¿Qué día de la semana querés reservarla? \n 1: Lunes \n 2: Martes \n 3: Miercoles \n 4: Jueves \n 5: Viernes")); 
             switch(diaReserva){
                 case 1:
@@ -116,8 +116,9 @@ function fechaReserva (dia){
                 alert("Por favor, seleccioná un número del 1 al 5");
             }
         } while (diaReserva <1 || diaReserva >5 || diaReserva == null || /\D/.test(diaReserva) || diaReserva == "");
-
+  
     return diaReserva;
+
     }    
 
 // Hora de inicio
@@ -203,7 +204,12 @@ function escribirEn_documento(salaI){
 }
 
 
+////////
 
+// let input = document.getElementById("input_invitados");
+// input.addEventListener("keypress", (e) =>{
+    
+// }
 
 
 
