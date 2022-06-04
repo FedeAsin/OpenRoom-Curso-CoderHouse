@@ -4,29 +4,23 @@ let salasGuardadas = [];
 // Creaccion de salas
 class Sala {
 
-    constructor (nombre, capacidad, piso){
-        this.nombre = (nombre).toUpperCase();
+    constructor (id, nombre, capacidad, piso){
+        this.id = id;
+        this.nombre = nombre;
         this.capacidad = parseInt(capacidad);
         this.piso = parseInt(piso);
-        // this.proyector = false;
     }
+
+    static newSala(sala){
+        return new Sala(sala.id,sala.nombre,sala.capacidad,sala.piso);
+    }
+
     mostrar_info(){
         return this.nombre;
     }
-
-    
 
     mostrar_infoCompleta(){
         return (this.nombre + "\n" + "Capacidad: " + this.capacidad + " personas" + "\n" + "Ubicado en el piso N° " + this.piso + "\n\n");
     }
 
 }
-
-
-
-let sala1 = new Sala ("Azul", 10, 1);
-let sala2 = new Sala ("Rojo", 12, 2);
-
-
-salasGuardadas.push(sala1);
-salasGuardadas.push(sala2);
