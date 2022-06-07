@@ -1,14 +1,13 @@
-// Este es el array donde se guardan las salas creadas
-let salasGuardadas = [];
-
 // Creaccion de salas
 class Sala {
 
-    constructor (id, nombre, capacidad, piso){
+    constructor (id, nombre, capacidad, piso, proyector){
         this.id = id;
         this.nombre = nombre;
         this.capacidad = parseInt(capacidad);
         this.piso = parseInt(piso);
+        this.proyector = proyector;
+        this.estado = "Libre";
     }
 
     static newSala(sala){
@@ -23,4 +22,11 @@ class Sala {
         return (this.nombre + "\n" + "Capacidad: " + this.capacidad + " personas" + "\n" + "Ubicado en el piso N° " + this.piso + "\n\n");
     }
 
+    getEstado(){
+        return this.estado ;
+    }
+
+    setEstadoNuevo(nuevo_estado){
+        this.estado = nuevo_estado;
+    }
 }
