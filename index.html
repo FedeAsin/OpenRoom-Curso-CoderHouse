@@ -48,8 +48,8 @@
     </header>
     <main>
         <div class="box">
-            <h1>Reservá tu sala, rápido</h1>
-            <div action="">
+            <div>
+                <h1>Reservá tu sala, rápido</h1>
                 <div class="input_form">
 
                 <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" ="Fecha de reserva"></label> 
@@ -82,13 +82,13 @@
                 <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
                 <p class="labelIcon">Hora de reserva</p>
 
-                    <input type="time" class="ftime" name="ftime_from" placeholder="Desde" min="00:00" max="23:30" list="ltime_from" required> 
+                    <input type="time" class="ftime" id="ftime_f" name="ftime_from" placeholder="Desde" min="00:00" max="23:30" list="ltime_from" required> 
                     <datalist id="ltime_from">
                         <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
                     </datalist>
 
                 <label for="ftime_until"></label>
-                    <input type="time" class="ftime" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" list="ltime_until"required><br><br>
+                    <input type="time" class="ftime" id="ftime_u" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" list="ltime_until"required><br><br>
                     <datalist id="ltime_until">
                         <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
                     </datalist>
@@ -99,11 +99,12 @@
                 <p class="labelIcon">Cantidad de invitados</p>
                     <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub">Personas</p>
                 </div> 
-                <div class="input_form"> 
+                <!-- <div class="input_form"> 
                     <label for="piso"><img src="img/MapPin.svg" class="iconForm" alt="Ubicación de la sala"></label>
                     <p class="labelIcon">Ubicación de la sala</p>
                         <input type="number" class="input_select" name="piso" min="1" max="15"><p class="labelIcon_sub">Piso</p>
-                    </div> 
+                    </div>  -->
+                    <div id="error"></div>
             </form>
             
             <div class="subtitle_box">
@@ -111,13 +112,20 @@
                 <h3 class="subtitleBajada">No te preocupes, buscaremos la mejor sala según tus preferencias.</h3>
             </div>
             <div class="boton_box">
-                <a href="" type="submit" class="botonReserva">Reservar sala</a>
+                <a href="" type="submit" id="btn_buscar" class="botonReserva">Buscar salas</a>
+            </div>
             </div>
         </div>
+
+        <div id="salasCreadas">
+            <h1 id="title"> Salas encontradas</h1>
+            <div id="mostrarSalas"></div>
+            </div>
+
+
     </main>
     <script src="JS/salas.js"></script>
-    <script src="JS/salasReservadas.js"></script>
-    <script src="JS/Script1.js"></script>
+    <script src="JS/Script_buscador_salas.js"></script>
     <!--
        
     -->

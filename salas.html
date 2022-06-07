@@ -49,7 +49,7 @@
     <main>
 
         <div class="box">   
-            <form action="">
+            <form>
                 <h2>Crear sala</h2>
                 <div class="input_form"> 
                     <label for="name">
@@ -57,30 +57,49 @@
                         <input type="text" class="input_select" id="input_name" name="name">
                     </label>
                 </div> 
-                <div class="input_form"> 
-                    <label for="piso">
-                    <p class="labelIcon">¿En que piso esta la sala?</p>
-                        <input type="number" class="input_select" id="input_location" name="piso" min="1" max="15">
-                    </label>
-                </div>
+
                 <div class="input_form"> 
                     <label for="guests">
                     <p class="labelIcon">Capacidad de la sala</p>
                         <input type="number" class="input_select" id="input_guests" name="guests" min="1" max="20">
                     </label>
                 </div> 
+
+                <div class="input_form"> 
+                    <label for="piso">
+                    <p class="labelIcon">Ubicación de la sala</p>
+                        <input type="number" class="input_select" id="input_location" name="piso" min="1" max="15">
+                    </label>
+                </div>
+
+                <div class="input_form_proyector"> 
+                    
+                    <p class="labelIcon">¿Tiene proyector?</p>
+                        <input type="checkbox" class="input_select" id="input_proyector" name="proyector">
+
+                </div>
+
                 <div class="boton_box">
                     <button type="submit" id="btn" class="btnC">Crear sala</button>
                 </div>
+                <div id="error"></div>
             </form>
+
         </div>
 
+
+        <div id="toast"><h3>Sala creada</h3></div>
 
         <div id="salasCreadas">
             <h1 id="title"> Salas creadas</h1>
             <div id="mostrarSalas"></div>
             </div>
-
+            <div id="emptyState">
+                <div>
+                    <h2>Por el momento no hay salas creadas</h2>
+                    <p>Cuando se creen podrás verlas acá</p>
+                </div>
+            </div>
     </main>
 
 
