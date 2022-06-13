@@ -129,21 +129,21 @@ function cargar_Salas (){
         let nuevoNombre = document.getElementById("input_name").value;
         let nuevaCapacidad = document.getElementById("input_guests").value;
         let nuevoPiso = document.getElementById("input_location").value;
-        let selectProyector = document.getElementById("input_proyector").checked;
+        let nuevoProyector = document.getElementById("input_proyector").checked;
 
         let dato_salaNueva = new Sala(
             id_sala,
             nuevoNombre,
             nuevaCapacidad,
             nuevoPiso,
-            selectProyector);
+            nuevoProyector);
 
         id_sala++
 
         conjuntoDeSalas.push(dato_salaNueva);
         localStorage.setItem(clave_ls, JSON.stringify(conjuntoDeSalas));
 
-        creadoraDe_Div(nuevoNombre,nuevaCapacidad,nuevoPiso,selectProyector);
+        creadoraDe_Div(nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
 
         ocultar_emptyState();
         mostrar_Toast();
