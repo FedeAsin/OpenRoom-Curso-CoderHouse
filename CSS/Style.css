@@ -6,12 +6,14 @@
     font-family: var(--font-family);
 }
 :root {
-    --color-text: rgb(65, 65, 65, 1);
-    --color-subs: rgb(145, 148, 150);
+    --color-text: #414141;
+    --color-subs: #919496;
     --color-back: #F9FAFC;
     --color-white: #FFFFFF;
     --color-primary: #13BAA6;
+    --color-primary-80: #109283;
     --color-secondary: #4576D6;
+    --color-secondary-50: #4575d687;
     --font-family: 'Poppins', sans-serif;
 }
 /* HEADER */
@@ -51,3 +53,4 @@ body {
     line-height: 1.5;
     background: var(--color-back);
 }
+

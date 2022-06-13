@@ -1,4 +1,9 @@
 /*Nav items*/
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
 .navbar1 {
     display: block;
     margin-left: 100px;
@@ -63,31 +68,49 @@
     color: var(--color-primary);
     border-bottom: 5px solid var(--color-primary);
 }
+body {
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--color-back);
+}
 main{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: row;
 }
 .box{
-    position: flex;
-    width: 521px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: auto;
     height: auto;
-    left: 509px;
-    top: 178px;
     border-radius: 12px;
     border-style: solid;
     border-width: 1px 1px 1px 10px;
     border-color: var(--color-primary);
     padding: 40px 40px 40px 30px;
-    margin: 3%;
+    margin: 2%;
     background-color: var(--color-white);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 } 
 
 .box > h1 {
-    padding: 0px 0px 32px 0px;
+    padding-bottom: 16px;
     font-size: 1.8rem;
 }
+
 .input_form{
     padding: 8px;
     display: flex;
@@ -99,8 +122,13 @@ main{
     padding: 8px;
 }
 .labelIcon{
-    padding: 8px;
+    padding: 8px 40px 8px 8px;
 }
+.labelIcon_sub{
+    padding: 8px 40px 8px 8px;
+    font-size: 12px;
+}
+
 .fdate{
     padding: 8px;
     border-radius: 8px;
@@ -110,13 +138,27 @@ main{
     height: 40px;
     cursor: pointer;
 }
+.radioDays{
+    padding: 0px 16px;
+    color: var(--color-text);
+    width: auto;
+    height: auto;
+}
+.radioButton{
+    padding: 4px;
+    cursor: pointer;
+}
+
+.rDay{
+    cursor: pointer;
+}
 .ftime{
     padding: 8px;
     margin: 0px 8px 0px 0px;
     border-radius: 8px;
     border-color: var(--color-subs);
-    color: var(--color-subs);
-    width: 190px;
+    color: var(--color-text);
+    width: auto;
     height: 40px;
     cursor: pointer;
 }
@@ -124,18 +166,15 @@ main{
     padding: 8px;
     border-radius: 8px;
     border-color: var(--color-subs);
-    color: var(--color-subs);
-    width: 80px;
+    color: var(--color-text);
+    width: 50px;
     height: 40px;
 }
-.proyector{
-    padding: 8px;
-    margin: 8px;
-    border-color: var(--color-subs);
-    color: var(--color-subs);
-    width: 28px;
-    height: 28px;
+#input_proyector{
     cursor: pointer;
+    border-radius: 8px;
+    border-color: var(--color-text);
+    padding: 8px;
 }
 .subtitle_box{
     padding: 32px 0px;
@@ -167,4 +206,57 @@ main{
     padding: 10px 32px;
     font-size: 16px;
     color: var(--color-white);
+}
+
+#title{
+    margin-bottom: 16px;
+    visibility: hidden;
+}
+
+#salasCreadas{
+    margin: 2%;
+}
+
+#mostrarSalas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+
+}
+#mostrarSalas > div{
+    grid-area: auto;
+    position: flex;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px 1px 1px 10px;
+    border-color: var(--color-primary);
+    padding: 20px;
+    padding-bottom: 8px;
+    margin: 1% 1%;
+    background-color: var(--color-white);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+} 
+
+#mostrarSalas > div > h2 {
+    font-size: 1.5rem;
+    width: 200px;
+    color: var(--color-primary);
+}
+#mostrarSalas > div > h3 {
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+#mostrarSalas > div > h4 {
+    font-size: 0.9rem;
+    color: var(--color-white);
+    padding: 8px;
+    margin: 16px 8px;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    text-align: center;
 }
