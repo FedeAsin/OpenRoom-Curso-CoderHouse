@@ -11,7 +11,6 @@ btn_buscar.addEventListener("click",(e)=>{
     e.preventDefault();
 
     if (validador_b()){
-    //    const resultado = Salas.find(({capacidad}) => capacidad === input_invitados.value);
     alert_swal("Buscando las mejores salas");
     
         cargar_Salas_b ();
