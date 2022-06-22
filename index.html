@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenRoom | Inicio </title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    
     <link rel="stylesheet" href="CSS/Style.css">
     <link rel="stylesheet" href="CSS/Style_inicio.css">
     <link rel="icon" href="img/isologo.svg">
@@ -28,7 +28,7 @@
                         <a href="salas.html" class="list_item_salas">Salas</a>
                     </li>
                     <li>
-                        <a href="" class="list_item_reservas">Mis reservas</a>
+                        <a href="MisReservas.html" class="list_item_reservas">Mis reservas</a>
                     </li>
                 </ul>
             </nav>
@@ -51,55 +51,45 @@
         <div class="box">
             <form id="form_search">
             <div>
-                <h1>Reservá tu sala, rápido</h1>
-                <div class="input_form">
+                <h1 id="titulo">Reservá tu sala, rápido</h1>
 
-                <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" ="Fecha de reserva"></label> 
-                <p class="labelIcon">Día de reserva</p>
-                    <div class="radioDays">
-                        <div class="radioButton">
-                            <input type="radio" id="dLunes" class="rDay" name="fdate" value="Lunes" required>
-                            <label for="dLunes" class="rDay">Lunes</label><br>
-                        </div>
-                        <div class="radioButton">
-                            <input type="radio" id="dMartes" class="rDay" name="fdate" value= "Martes" required>
-                            <label for="dMartes" class="rDay">Martes</label><br>
-                        </div>
-                        <div class="radioButton">    
-                            <input type="radio" id="dMiercoles" class="rDay" name="fdate" value= "Miercoles" required>
-                            <label for="dMiercoles" class="rDay">Miercoles</label><br>
-                        </div>
-                        <div class="radioButton">   
-                            <input type="radio" id="dJueves" class="rDay" name="fdate" value= "Jueves" required>
-                            <label for="dJueves" class="rDay">Jueves</label><br>
-                        </div>
-                        <div class="radioButton">
-                            <input type="radio" id="dViernes" class="rDay" name="fdate" value= "Viernes" required>
-                            <label for="dViernes" class="rDay">Viernes</label><br>
-                        </div>
-                    </div>
+
+                <div class="input_form">
+                    <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" ="Fecha de reserva"></label> 
+                    <p class="labelIcon">Día de reserva</p>
+
+                        <select id="rDay" class="input_select">
+                            <option value="lunes" >Lunes</option>
+                            <option value="martes">Martes</option>
+                            <option value="miercoles">Miercoles</option>
+                            <option value="jueves">Jueves</option>
+                            <option value="viernes">Viernes</option>
+                        </select>
                 </div>
 
+
+ 
+
                 <div class="input_form">
-                <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
-                <p class="labelIcon">Hora de reserva</p>
+                    <label for="ftime_from"><img src="img/Clock.svg" class="iconForm" alt="Horario de reserva"></label>
+                    <p class="labelIcon">Hora de reserva</p>
 
-                    <input type="time" class="ftime" id="ftime_f" name="ftime_from" placeholder="Desde" min="00:00" max="23:30" list="ltime_from" required> 
-                    <datalist id="ltime_from">
-                        <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
-                    </datalist>
+                        <input type="time" class="input_select" id="ftime_f" name="ftime_from" placeholder="Desde" min="00:00" max="23:30" list="ltime_from" required> 
+                        <datalist id="ltime_from">
+                            <option value="10:00"><option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00">
+                        </datalist>
 
-                <label for="ftime_until"></label>
-                    <input type="time" class="ftime" id="ftime_u" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" list="ltime_until"required><br><br>
-                    <datalist id="ltime_until">
-                        <option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00"><option value="18:00"></option>
-                    </datalist>
+                    <label for="ftime_until"></label>
+                        <input type="time" class="input_select" id="ftime_u" name="ftime_until" placeholder="Hasta" min="00:00" max="23:30" list="ltime_until"required><br><br>
+                        <datalist id="ltime_until">
+                            <option value="11:00"><option value="12:00"><option value="13:00"><option value="14:00"><option value="15:00"><option value="16:00"><option value="17:00"><option value="18:00"></option>
+                        </datalist>
                 </div>
 
                 <div class="input_form"> 
-                <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
-                <p class="labelIcon">Cantidad de invitados</p>
-                    <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub">Personas</p>
+                    <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
+                    <p class="labelIcon">Cantidad de invitados</p>
+                        <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub">Personas</p>
                 </div> 
 
                 <div class="input_form"> 
@@ -107,8 +97,7 @@
                     <p class="labelIcon">Proyector</p>
                     <input type="checkbox" class="input_select" id="input_proyector" name="proyector">
                 </div> 
-            
-
+        
                     <div id="error"></div>
             </form>
             
@@ -130,10 +119,9 @@
 
 
     </main>
+    
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> -->
     <script src="JS/salas.js"></script>
     <script src="JS/Script_buscador_salas.js"></script>
     <!--

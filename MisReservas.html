@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenRoom | Salas </title>
-
+    <title>OpenRoom | Mis reservas </title>
+    
     <link rel="stylesheet" href="CSS/Style.css">
-    <link rel="stylesheet" href="CSS/Style_salas.css">
+    <link rel="stylesheet" href="CSS/Style_misReservas.css">
     <link rel="icon" href="img/isologo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
                         <a href="salas.html" class="list_item_salas">Salas</a>
                     </li>
                     <li>
-                        <a href="MisReservas.html" class="list_item_reservas">Mis reservas</a>
+                        <a href="" class="list_item_reservas">Mis reservas</a>
                     </li>
                 </ul>
             </nav>
@@ -49,66 +49,23 @@
     </header>
     <main>
 
-        <div class="box">   
-            <form>
-                <h2>Crear sala</h2>
 
-                <div class="input_form"> 
-                    <label for="name">
-                    <p class="labelIcon">Nombre de sala</p>
-                        <input type="text" class="input_select" id="input_name" name="name">
-                    </label>
-                </div> 
-
-                <div class="input_form"> 
-                    <label for="guests">
-                    <p class="labelIcon">Capacidad de la sala</p>
-                        <input type="number" class="input_select" id="input_guests" name="guests" min="1" max="20">
-                    </label>
-                </div> 
-
-                <div class="input_form"> 
-                    <label for="piso">
-                    <p class="labelIcon">Ubicación de la sala</p>
-                        <input type="number" class="input_select" id="input_location" name="piso" min="1" max="15">
-                    </label>
-                </div>
-
-                <div class="input_form_proyector"> 
-                    
-                    <p class="labelIcon">¿Tiene proyector?</p>
-                        <input type="checkbox" class="input_select" id="input_proyector" name="proyector">
-                </div>
-
-                <div class="boton_box">
-                    <button type="submit" id="btn" class="btnC">Crear sala</button>
-                </div>
-                <div id="error"></div>
-            </form>
-
-        </div>
-
-
-        <div id="toast"><h3>Sala creada</h3></div>
 
         <div id="salasCreadas">
-            <h1 id="title"> Salas creadas</h1>
+            <h1 id="title"> Salas reservadas</h1>
             <div id="mostrarSalas"></div>
             </div>
-            <div id="emptyState">
-                <div>
-                    <h2>Por el momento no hay salas creadas</h2>
-                    <p>Cuando se creen podrás verlas acá</p>
-                </div>
-            </div>
-    </main>
 
+
+    </main>
+    
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="JS/Script_salas_reservadas.js"></script> -->
     <script src="JS/salas.js"></script>
-    <script src="JS/Script_creacion_sala.js"></script>
-    
-<!--     
+    <!-- <script src="JS/Script_buscador_salas.js"></script> -->
+    <!--
+       
     -->
 </body>
 </html>
