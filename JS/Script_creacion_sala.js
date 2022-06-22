@@ -1,6 +1,5 @@
-const clave_ls = "Salas_guardadas";
-
-const clave_id = "clave_id";
+const clave_ls = "Salas guardadas";
+const clave_id = "Clave ID";
 
 let id_sala = localStorage.getItem(clave_id);
 
@@ -15,7 +14,6 @@ btn_crear.addEventListener("click",(e)=>{
     e.preventDefault();
     
     if (validador()){
-
         creador_Sala();
         reseteador();
     }
@@ -30,7 +28,6 @@ btn_crear.addEventListener("click",(e)=>{
 function cargar_Salas (){
 
     let salas = localStorage.getItem(clave_ls);
-
     
     if (salas){
         salas = JSON.parse(salas);
@@ -121,7 +118,6 @@ function cargar_Salas (){
         
     }
 
-
 ////CREADOR SALAS
 
     function creador_Sala(){
@@ -141,6 +137,7 @@ function cargar_Salas (){
         id_sala++
 
         conjuntoDeSalas.push(dato_salaNueva);
+  
         localStorage.setItem(clave_ls, JSON.stringify(conjuntoDeSalas));
 
         creadoraDe_Div(nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
@@ -153,32 +150,46 @@ function cargar_Salas (){
 
 function creadoraDe_Div (nombre,capacidad,piso,proyector){
 
-    let mostrarSalas = document.getElementById ("mostrarSalas");
-    let box = document.createElement("div");
 
+    let mostrarSalas = document.getElementById ("mostrarSalas");
+    
+    let box = document.createElement("div");
 
     let nombreS = document.createElement("h2");
     nombreS.textContent = nombre.toUpperCase();
 
     let capacidadS = document.createElement("h3");
-    capacidadS.textContent = capacidad + " personas";
+    if(capacidad == 1){
+        capacidadS.textContent = capacidad + " persona";
+    }else if(capacidad > 1){
+        capacidadS.textContent = capacidad + " personas";
+    }
 
     let ubicacionS = document.createElement("h3");
     ubicacionS.textContent = piso + " piso";
 
     let proyectorS = document.createElement("h3");
     if(proyector){
-    proyectorS.textContent = "Con proyector";
-    
+    proyectorS.textContent = "Con proyector 🟢";
     }else {
-    proyectorS.textContent = "Sin proyector";
+    proyectorS.textContent = "Sin proyector 🔴";
     }
 
+    /*
+    let btn_borrar = document.createElement("h4");
+        btn_borrar.textContent = "Eliminar sala";
 
+        btn_borrar.addEventListener("click", (a)=>{
+                // Esta funcion esta por trabajarse
+                // Acá se va a poder guardar en el localStorage la info de la sala para poder "reservarla"
+        });
+
+    */
     box.appendChild(nombreS);
     box.appendChild(capacidadS);
     box.appendChild(ubicacionS);
     box.appendChild(proyectorS);
+    // box.appendChild(btn_borrar);
 
     mostrarSalas.appendChild(box);
 
@@ -187,10 +198,7 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
     mostrar_salasYaCreadas();
 }
 
-
-
 //// HOVER DE CARD ////
-
 function hover_Card(box){
 
     box.addEventListener("mouseover", ()=>{
@@ -204,18 +212,17 @@ function hover_Card(box){
 
     }       
 
-
 //// RESETEAR FORMULARIO ////
-
 function reseteador(){
     
     document.getElementById("input_name").value = "";
     document.getElementById("input_location").value = "";
     document.getElementById("input_guests").value = "";
-    document.getElementById("input_proyector").value = false;
+    document.getElementById("input_proyector").checked = false;
 
 }
 
+//// MOSTRAR TOAST DE SALA CREADA ////
 function mostrar_Toast(){
     let toast = document.getElementById("toast");
     toast.style.visibility = "visible";
@@ -226,6 +233,7 @@ function mostrar_Toast(){
         toast.style.opacity = "0";
     },2000)
 }
+
 
 function mostrar_salasYaCreadas(){
     let eS = document.getElementById("salasCreadas");
@@ -238,3 +246,17 @@ function ocultar_emptyState(){
     eS.style.visibility = "hidden";
     eS.style.opacity = "0";
 }
+
+function eliminar_sala(data){
+
+    // Hacer la funcion de eliminar card
+
+    const index = conjuntoDeSalas.indexOf(data);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+}
+
+
+
+
