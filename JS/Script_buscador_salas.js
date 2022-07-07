@@ -1,7 +1,8 @@
 const clave_ls = "Salas guardadas";
 const clave_rs = "Salas_reservadas";
+let id = 0;
+let arregloReservadas = cargar_Salas();
 
-// let id_sala = localStorage.getItem(clave_id);
 
 let btn_buscar = document.getElementById("btn_buscar");
 
@@ -113,7 +114,7 @@ function cargar_Salas_b(){
 
     let salas = localStorage.getItem(clave_ls);
 
-    if (salas){
+    if (salas.length >= 1){
         alert_swal("Buscando las mejores salas");
 
         filterSalas();
@@ -132,7 +133,10 @@ function cargar_Salas_b(){
 
                     
         }
-    } else{
+    } if (salas.length < 1){
+        alert_swal("Aun no hay salas creadas");
+    }
+    if (!salas){
         alert_swal("Aun no hay salas creadas");
     }
 };
@@ -147,9 +151,11 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
 
             let mostrarSalas = document.getElementById ("mostrarSalas");
             let box = document.createElement("div");
+                box.classList.add("box");
 
             let nombreS = document.createElement("h2");
                 nombreS.textContent = nombre.toUpperCase();
+                nombreS.classList.add("item-title");
 
                 let capacidadS = document.createElement("h3");
                 if(capacidad == 1){
@@ -157,9 +163,11 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
                 }else if(capacidad > 1){
                     capacidadS.textContent = capacidad + " personas";
                 }
+                capacidadS.classList.add("item-capacity")
 
             let ubicacionS = document.createElement("h3");
                 ubicacionS.textContent = piso + " piso";
+                ubicacionS.classList.add("item-location")
 
             let proyectorS = document.createElement("h3");
                 if(proyector){
@@ -167,17 +175,49 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
                 }else {
                 proyectorS.textContent = "Sin proyector 🔴";
                 }
-            let btn_reservarS = document.createElement("h4");
+                proyectorS.classList.add("item-proyector")
+
+
+            let btn_reservarS = document.createElement("button");
                  btn_reservarS.textContent = "Reservar sala";
+                 btn_reservarS.classList.add("btnReserva");
 
-            
-                btn_reservarS.addEventListener("click", ()=>{
 
-                    // Esta funcion esta por trabajarse
-                    // Acá se va a poder guardar en el localStorage la info de la sala para poder "reservarla"
+//BOTON RESERVA DE SALA
+
+                let agregarSalasReservadas = document.querySelectorAll(".btnReserva");
+                agregarSalasReservadas.forEach((agregarReserva) => {
+                    agregarReserva.addEventListener("click", agregarReservaClicked);
                 });
-            
+                
+                function agregarReservaClicked (event) {
+                    let btn = event.target;
+                    let item = btn.closest(".box");
 
+                    console.log("agregarReservaClicked -> item", item);
+
+                    let itemTitle = item.querySelector(".item-title").textContent;
+                    let itemCapacity = item.querySelector(".item-capacity").textContent;
+                    let itemLocation = item.querySelector(".item-location").textContent;
+                    let itemProyector = item.querySelector(".item-proyector").textContent;
+                    let itemStatus = "Ocupada"
+
+                    reservarSala(itemTitle, itemCapacity, itemLocation, itemProyector, itemStatus);
+                }
+
+                function reservarSala(itemTitle, itemCapacity, itemLocation, itemProyector, itemStatus){
+
+                    let datos_reservada = new Sala(id,itemTitle,itemCapacity,itemLocation,itemProyector, itemStatus);
+                    id++;
+            
+                    arregloReservadas.push(datos_reservada);
+
+                    localStorage.setItem(clave_rs, JSON.stringify(arregloReservadas));
+
+                    mostrarToast(itemTitle);
+                }
+            
+// PINTAR CARDS
 
             box.appendChild(nombreS);
             box.appendChild(capacidadS);
@@ -239,8 +279,35 @@ function alertButton_swal (titulo, bTexto){
       })
 }
 
+//// MOSTRAR TOAST DE SALA CREADA ////
+function mostrarToast(name){
+    let toast = document.getElementById("toast");
+    toast.textContent = "Sala " + name + " reservada";
+    toast.style.visibility = "visible";
+    toast.style.opacity = "1";
+
+    setTimeout(function(){
+        toast.style.visibility = "hidden";
+        toast.style.opacity = "0";
+    },2000)
+
+}
 
 
+function cargar_Salas (){
 
+    let salas = localStorage.getItem(clave_rs);
+    
+    if (salas){
+        salas = JSON.parse(salas);
+        console.table(salas);
 
+          for (let i = 0 ; i < salas.length; i++){
+            let s = salas[i];
+            Sala.newSala(s);
+          }
+          return salas;
+    }
 
+    return new Array();
+}

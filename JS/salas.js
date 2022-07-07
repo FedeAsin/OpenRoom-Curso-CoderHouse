@@ -1,20 +1,20 @@
 // Creaccion de salas
 class Sala {
 
-    constructor (id, nombre, capacidad, piso, proyector){
+    constructor (id, nombre, capacidad, piso, proyector,estado){
         this.id = id;
         this.nombre = nombre;
         this.capacidad = parseInt(capacidad);
         this.piso = parseInt(piso);
         this.proyector = proyector;
-        this.estado = "Libre";
+        this.estado = estado;
     }
 
     static newSala(sala){
         return new Sala(sala.id,sala.nombre,sala.capacidad,sala.piso);
     }
 
-    mostrar_info(){
+    mostrar_nombre(){
         return this.nombre;
     }
 

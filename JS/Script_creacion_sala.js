@@ -1,10 +1,7 @@
 const clave_ls = "Salas guardadas";
-const clave_id = "Clave ID";
-
-let id_sala = localStorage.getItem(clave_id);
-
+const clave_rs = "Salas_reservadas";
+let id = 0;
 let btn_crear = document.getElementById("btn");
-
 let conjuntoDeSalas = cargar_Salas();
 
 
@@ -21,10 +18,10 @@ btn_crear.addEventListener("click",(e)=>{
 });
 
 
-//// FUNCIONES ////
-    
+////> FUNCIONES <////
 
 //// CARGAR SALAS ////
+
 function cargar_Salas (){
 
     let salas = localStorage.getItem(clave_ls);
@@ -33,10 +30,10 @@ function cargar_Salas (){
         salas = JSON.parse(salas);
         console.table(salas);
 
-          for (let i = 0 ; i < salas.length ; i++) {
+          for (let i = 0 ; i < salas.length; i++){
             let s = salas[i];
             Sala.newSala(s);
-            creadoraDe_Div (s.nombre,s.capacidad,s.piso,s.proyector);
+            creadoraDe_Div (s.id,s.nombre,s.capacidad,s.piso,s.proyector);
             ocultar_emptyState();
           }
           return salas;
@@ -118,7 +115,7 @@ function cargar_Salas (){
         
     }
 
-////CREADOR SALAS
+////CREADOR SALAS ////
 
     function creador_Sala(){
     
@@ -127,90 +124,112 @@ function cargar_Salas (){
         let nuevoPiso = document.getElementById("input_location").value;
         let nuevoProyector = document.getElementById("input_proyector").checked;
 
-        let dato_salaNueva = new Sala(
-            id_sala,
-            nuevoNombre,
-            nuevaCapacidad,
-            nuevoPiso,
-            nuevoProyector);
-
-        id_sala++
-
+        let dato_salaNueva = new Sala(id,nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
+        id++;
+ 
         conjuntoDeSalas.push(dato_salaNueva);
-  
         localStorage.setItem(clave_ls, JSON.stringify(conjuntoDeSalas));
 
-        creadoraDe_Div(nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
-
+        creadoraDe_Div(id,nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
         ocultar_emptyState();
-        mostrar_Toast();
+        mostrarToast("Sala creada");
+        
+
     }
+
 
 //// CREADOR DE CARDS DE SALAS CREADAS ////
 
-function creadoraDe_Div (nombre,capacidad,piso,proyector){
+function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
 
 
     let mostrarSalas = document.getElementById ("mostrarSalas");
-    
+
     let box = document.createElement("div");
+    box.classList.add("box");
+    box.setAttribute("box_id", boxId);
 
+    //Nombre
     let nombreS = document.createElement("h2");
-    nombreS.textContent = nombre.toUpperCase();
-
+    nombreS.textContent = boxName;
+    //Capacidad
     let capacidadS = document.createElement("h3");
-    if(capacidad == 1){
-        capacidadS.textContent = capacidad + " persona";
-    }else if(capacidad > 1){
-        capacidadS.textContent = capacidad + " personas";
+    if(boxCapacity == 1){
+        capacidadS.textContent = boxCapacity + " persona";
+    }else if(boxCapacity > 1){
+        capacidadS.textContent = boxCapacity + " personas";
     }
-
+    //Ubicacion
     let ubicacionS = document.createElement("h3");
-    ubicacionS.textContent = piso + " piso";
-
+    ubicacionS.textContent = boxLocation + " piso";
+    //Proyector
     let proyectorS = document.createElement("h3");
-    if(proyector){
+    if(boxProyector){
     proyectorS.textContent = "Con proyector 🟢";
     }else {
     proyectorS.textContent = "Sin proyector 🔴";
     }
 
-    /*
-    let btn_borrar = document.createElement("h4");
-        btn_borrar.textContent = "Eliminar sala";
+    // Boton borrar //
+    let btnDelete = document.createElement("button");
+        btnDelete.textContent = "Eliminar sala";
+        btnDelete.classList.add("btnDelete");
+        //box.querySelector("btnDelete");
 
-        btn_borrar.addEventListener("click", (a)=>{
-                // Esta funcion esta por trabajarse
-                // Acá se va a poder guardar en el localStorage la info de la sala para poder "reservarla"
-        });
 
-    */
+        btnDelete.addEventListener("click", (event) =>{
+            //Se selecciona la card a eliminar
+            let cardToDelete = event.target.parentNode;
+            //Se determina el ID de la card
+            console.log("cardToDelete ->" + cardToDelete);
+            let cardID = cardToDelete.getAttribute("box_id");
+            console.log("cardID ->" + cardID);
+            //Eliminar la card en el HTML
+            cardToDelete.remove();
+            //Eliminar la card en LocalStorage
+            deleteInLocalStorage(cardID);
+            
+        })
+
+        function deleteInLocalStorage(id_sala){
+            //obtener localStorage
+            let obtenerLocalStorage = JSON.parse(localStorage.getItem(clave_ls));
+            //busco posicion a eliminar
+            let indexInLocalStorage = obtenerLocalStorage.findIndex(element => element.id === id_sala);
+            //elimino el elemento
+            obtenerLocalStorage.splice(indexInLocalStorage, 1);
+            //Guardo el nuevo array
+            localStorage.setItem(clave_ls, JSON.stringify(obtenerLocalStorage));
+            localStorage.setItem(clave_rs, JSON.stringify(obtenerLocalStorage));
+        }
+    
+
+    // DIBUJAR COMPONENTES
     box.appendChild(nombreS);
     box.appendChild(capacidadS);
     box.appendChild(ubicacionS);
     box.appendChild(proyectorS);
-    // box.appendChild(btn_borrar);
-
+    box.appendChild(btnDelete);
     mostrarSalas.appendChild(box);
 
-    //// Hover en card ////
-    hover_Card(box);
+    //// Hover en card
+    hover_button(btnDelete);
     mostrar_salasYaCreadas();
 }
 
 //// HOVER DE CARD ////
-function hover_Card(box){
+function hover_button(element){
 
-    box.addEventListener("mouseover", ()=>{
-        box.style.cursor = "pointer";
-        box.style.backgroundColor = "#F9FAFC";     
+    element.addEventListener("mouseover", ()=>{
+        element.style.cursor = "pointer";
+        element.style.backgroundColor = "#C23229";     
     });
 
-    box.addEventListener("mouseout", ()=>{
-    box.style.backgroundColor = "#FFFFFF";     
+    element.addEventListener("mouseout", ()=>{
+    element.style.backgroundColor = "#FF3F33";     
     });
 
-    }       
+    }        
 
 //// RESETEAR FORMULARIO ////
 function reseteador(){
@@ -223,8 +242,9 @@ function reseteador(){
 }
 
 //// MOSTRAR TOAST DE SALA CREADA ////
-function mostrar_Toast(){
+function mostrarToast(text){
     let toast = document.getElementById("toast");
+    toast.textContent = text;
     toast.style.visibility = "visible";
     toast.style.opacity = "1";
 
@@ -247,15 +267,9 @@ function ocultar_emptyState(){
     eS.style.opacity = "0";
 }
 
-function eliminar_sala(data){
 
-    // Hacer la funcion de eliminar card
 
-    const index = conjuntoDeSalas.indexOf(data);
-    if (index > -1) {
-      array.splice(index, 1);
-    }
-}
+
 
 
 

@@ -16,6 +16,7 @@ function cargar_Salas (){
             Sala.newSala(s);
             creadoraDe_Div (s.nombre,s.capacidad,s.piso,s.proyector);
             ocultar_emptyState();
+            mostrar_salasReservadas();
           }
           return salas;
     }
@@ -23,11 +24,12 @@ function cargar_Salas (){
     return new Array();
 }
 
-function creadoraDe_Div (nombre,capacidad,piso,proyector){
+function creadoraDe_Div(nombre,capacidad,piso,proyector){
 
-    let mostrarSalas = document.getElementById ("mostrarSalas");
+    let mostrarSalas = document.getElementById("mostrarSalas");
+
     let box = document.createElement("div");
-
+    box.classList.add("box");
 
     let nombreS = document.createElement("h2");
     nombreS.textContent = nombre.toUpperCase();
@@ -46,15 +48,22 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
     proyectorS.textContent = "Sin proyector";
     }
 
-
     box.appendChild(nombreS);
     box.appendChild(capacidadS);
     box.appendChild(ubicacionS);
     box.appendChild(proyectorS);
 
     mostrarSalas.appendChild(box);
+}
 
-    //// Hover en card ////
-    hover_Card(box);
-    mostrar_salasYaCreadas();
+function ocultar_emptyState(){
+  let eS = document.getElementById("emptyState");
+  eS.style.visibility = "hidden";
+  eS.style.opacity = "0";
+}
+
+function mostrar_salasReservadas(){
+  let eS = document.getElementById("salasReservadas");
+  eS.style.visibility = "visible";
+  eS.style.opacity = "1";
 }
