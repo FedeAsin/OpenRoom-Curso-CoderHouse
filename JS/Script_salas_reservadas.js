@@ -14,7 +14,7 @@ function cargar_Salas (){
           for (let i = 0 ; i < salas.length ; i++) {
             let s = salas[i];
             Sala.newSala(s);
-            creadoraDe_Div (s.nombre,s.capacidad,s.piso,s.proyector);
+            creadoraDe_Div (s.id,s.nombre,s.capacidad,s.piso,s.proyector);
             ocultar_emptyState();
             mostrar_salasReservadas();
           }
@@ -24,15 +24,16 @@ function cargar_Salas (){
     return new Array();
 }
 
-function creadoraDe_Div(nombre,capacidad,piso,proyector){
+function creadoraDe_Div(id,nombre,capacidad,piso,proyector){
 
     let mostrarSalas = document.getElementById("mostrarSalas");
 
     let box = document.createElement("div");
     box.classList.add("box");
+    box.setAttribute("box_id", id);
 
     let nombreS = document.createElement("h2");
-    nombreS.textContent = nombre.toUpperCase();
+    nombreS.textContent = nombre;
 
     let capacidadS = document.createElement("h3");
     capacidadS.textContent = capacidad + " personas";

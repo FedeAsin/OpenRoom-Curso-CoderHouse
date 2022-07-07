@@ -1,5 +1,4 @@
 const clave_ls = "Salas guardadas";
-const clave_rs = "Salas_reservadas";
 let id = 0;
 let btn_crear = document.getElementById("btn");
 let conjuntoDeSalas = cargar_Salas();
@@ -180,8 +179,7 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
         btnDelete.addEventListener("click", (event) =>{
             //Se selecciona la card a eliminar
             let cardToDelete = event.target.parentNode;
-            //Se determina el ID de la card
-            console.log("cardToDelete ->" + cardToDelete);
+            //Se determina el ID de la card 
             let cardID = cardToDelete.getAttribute("box_id");
             console.log("cardID ->" + cardID);
             //Eliminar la card en el HTML
@@ -198,9 +196,8 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
             let indexInLocalStorage = obtenerLocalStorage.findIndex(element => element.id === id_sala);
             //elimino el elemento
             obtenerLocalStorage.splice(indexInLocalStorage, 1);
-            //Guardo el nuevo array
+            //Guardo el nuevo array - Salas creadas
             localStorage.setItem(clave_ls, JSON.stringify(obtenerLocalStorage));
-            localStorage.setItem(clave_rs, JSON.stringify(obtenerLocalStorage));
         }
     
 
