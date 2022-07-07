@@ -11,7 +11,7 @@ class Sala {
     }
 
     static newSala(sala){
-        return new Sala(sala.id,sala.nombre,sala.capacidad,sala.piso);
+        return new Sala(sala.id,sala.nombre,sala.capacidad,sala.piso,sala.proyector);
     }
 
     mostrar_nombre(){

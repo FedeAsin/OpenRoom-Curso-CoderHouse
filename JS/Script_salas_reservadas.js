@@ -11,7 +11,7 @@ function cargar_Salas (){
         salas = JSON.parse(salas);
         console.table(salas);
 
-          for (let i = 0 ; i < salas.length ; i++) {
+          for (let i = 0; i < salas.length; i++) {
             let s = salas[i];
             Sala.newSala(s);
             creadoraDe_Div (s.id,s.nombre,s.capacidad,s.piso,s.proyector);

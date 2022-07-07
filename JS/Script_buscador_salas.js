@@ -13,6 +13,7 @@ btn_buscar.addEventListener("click",(e)=>{
     e.preventDefault();
 
     if (validador_b()){
+        console.log("este es el validar -> " + validador_b.value);
         cargar_Salas_b ();
         reseteador_b();
     }
@@ -190,7 +191,7 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
                     agregarReserva.addEventListener("click", agregarReservaClicked);
                 });
                 
-                function agregarReservaClicked (event) {
+                function agregarReservaClicked(event) {
                     let btn = event.target;
                     let item = btn.closest(".box");
 
