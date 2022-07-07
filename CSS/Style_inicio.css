@@ -91,7 +91,7 @@ main{
 #titulo{
     padding: 16px;
 }
-.box{
+.box_search{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -198,7 +198,8 @@ main{
     grid-row-gap: 8px;
 
 }
-#mostrarSalas > div{
+.box{
+    justify-content: left;
     grid-area: auto;
     position: flex;
     width: auto;
@@ -208,28 +209,30 @@ main{
     border-width: 1px 1px 1px 10px;
     border-color: var(--color-primary);
     padding: 20px;
-    padding-bottom: 8px;
+    padding-bottom: 16px;
     margin: 1% 1%;
     background-color: var(--color-white);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 } 
 
-#mostrarSalas > div > h2 {
+.box > h2 {
     font-size: 1.5rem;
     width: 200px;
     color: var(--color-primary);
 }
-#mostrarSalas > div > h3 {
+.box > h3 {
     font-size: 0.9rem;
     color: var(--color-text);
 }
 
-#mostrarSalas > div > h4 {
+.box > button {
     font-size: 0.9rem;
     color: var(--color-white);
     padding: 8px;
     margin: 16px 8px;
     background-color: var(--color-primary);
     border-radius: 8px;
+    border-color: transparent;
+    box-shadow: none;
     text-align: center;
 }

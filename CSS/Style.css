@@ -14,6 +14,7 @@
     --color-primary-80: #109283;
     --color-secondary: #4576D6;
     --color-secondary-50: #4575d687;
+    --color-error: #FF3F33;
     --font-family: 'Poppins', sans-serif;
 }
 /* HEADER */
@@ -54,3 +55,21 @@ body {
     background: var(--color-back);
 }
 
+#toast {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    width: 15%;
+    height: 60px;
+    margin: 2%;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: 1.2em;
+    bottom: 0;
+    left: 0;
+    transition: margin-left 1s; 
+}
