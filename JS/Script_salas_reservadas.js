@@ -1,22 +1,20 @@
 
 const clave_rs = "Salas_reservadas";
 
-let conjuntoDeSalas = cargar_Salas();
+let conjuntoDeSalas = load_room();
 
-function cargar_Salas (){
+function load_room (){
 
     let salas = localStorage.getItem(clave_rs);
     
     if (salas){
         salas = JSON.parse(salas);
-        console.table(salas);
-
           for (let i = 0; i < salas.length; i++) {
             let s = salas[i];
             Sala.newSala(s);
-            creadoraDe_Div (s.id,s.nombre,s.capacidad,s.piso,s.proyector);
-            ocultar_emptyState();
-            mostrar_salasReservadas();
+            create_card (s.id,s.nombre,s.capacidad,s.piso,s.proyector);
+            hide_emptyState();
+            show_createdRooms();
           }
           return salas;
     }
@@ -24,7 +22,7 @@ function cargar_Salas (){
     return new Array();
 }
 
-function creadoraDe_Div(id,nombre,capacidad,piso,proyector){
+function create_card(id,nombre,capacidad,piso,proyector){
 
     let mostrarSalas = document.getElementById("mostrarSalas");
 
@@ -44,27 +42,53 @@ function creadoraDe_Div(id,nombre,capacidad,piso,proyector){
     let proyectorS = document.createElement("h3");
     if(proyector){
     proyectorS.textContent = "Con proyector";
-    
     }else {
     proyectorS.textContent = "Sin proyector";
     }
+
+    let btn_detaill = document.createElement("button");
+        btn_detaill.textContent = "Ver sala";
+        btn_detaill.classList.add("btnDetaill");
+        hover_button(btn_detaill)
+
+
 
     box.appendChild(nombreS);
     box.appendChild(capacidadS);
     box.appendChild(ubicacionS);
     box.appendChild(proyectorS);
+    box.appendChild(btn_detaill);
 
     mostrarSalas.appendChild(box);
 }
 
-function ocultar_emptyState(){
+function hide_emptyState(){
   let eS = document.getElementById("emptyState");
   eS.style.visibility = "hidden";
   eS.style.opacity = "0";
 }
 
-function mostrar_salasReservadas(){
+function show_createdRooms(){
   let eS = document.getElementById("salasReservadas");
   eS.style.visibility = "visible";
   eS.style.opacity = "1";
 }
+function hover_button(element){
+
+  element.addEventListener("mouseover", ()=>{
+      element.style.cursor = "pointer";
+      element.style.backgroundColor = "#4575d687";     
+  });
+
+  element.addEventListener("mouseout", ()=>{
+  element.style.backgroundColor = "#4576D6";     
+  });
+} 
+
+
+
+
+
+
+
+

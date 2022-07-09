@@ -1,8 +1,7 @@
 const clave_ls = "Salas guardadas";
 const clave_rs = "Salas_reservadas";
 let id = 0;
-let arregloReservadas = cargar_Salas();
-
+let arregloReservadas = load_rooms_search();
 
 let btn_buscar = document.getElementById("btn_buscar");
 
@@ -12,17 +11,16 @@ let btn_buscar = document.getElementById("btn_buscar");
 btn_buscar.addEventListener("click",(e)=>{
     e.preventDefault();
 
-    if (validador_b()){
-        console.log("este es el validar -> " + validador_b.value);
-        cargar_Salas_b ();
-        reseteador_b();
+    if (validator_search()){
+        filter_loadRooms ();
+        reset_search();
     }
 });
 
 
 //// FUNCIONES ////
 
-function validador_b(){
+function validator_search(){
 
     let diaReserva = document.getElementById("rDay").value;   
     let input_tiempoDesde = document.getElementById("ftime_f").value;
@@ -101,7 +99,7 @@ function validador_b(){
     
 }
 
-function reseteador_b(){
+function reset_search(){
     
     document.getElementById("rDay").value = "";
     document.getElementById("ftime_f").value = "";
@@ -111,7 +109,7 @@ function reseteador_b(){
 
 }
 
-function cargar_Salas_b(){
+function filter_loadRooms(){
 
     let salas = localStorage.getItem(clave_ls);
 
@@ -130,7 +128,7 @@ function cargar_Salas_b(){
                     let salasEncontradas = salas.filter (salaBuscada => 
                         (salaBuscada.capacidad >= input_invitados) && (salaBuscada.proyector === input_proyector));
     
-                    salasEncontradas.map (salaEncontrada => creadoraDe_Div(salaEncontrada.nombre, salaEncontrada.capacidad, salaEncontrada.piso, salaEncontrada.proyector));
+                    salasEncontradas.map (salaEncontrada => create_cardSearch(salaEncontrada.nombre, salaEncontrada.capacidad, salaEncontrada.piso, salaEncontrada.proyector));
 
                     
         }
@@ -146,7 +144,7 @@ function cargar_Salas_b(){
 
 //// CREADOR DE CARDS DE SALAS CREADAS ////
 
-function creadoraDe_Div (nombre,capacidad,piso,proyector){
+function create_cardSearch (nombre,capacidad,piso,proyector){
 
             title.style.visibility = "visible";
 
@@ -214,8 +212,7 @@ function creadoraDe_Div (nombre,capacidad,piso,proyector){
                     arregloReservadas.push(datos_reservada);
 
                     localStorage.setItem(clave_rs, JSON.stringify(arregloReservadas));
-
-                    mostrarToast(itemTitle);
+                    showToast(itemTitle);
                 }
             
 // PINTAR CARDS
@@ -260,28 +257,8 @@ function alert_swal (mensaje){
     });
 }
 
-function alertButton_swal (titulo, bTexto){
-    Swal.fire({
-        title: titulo,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: bTexto,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Reservada!',
-            'Ya podes ver tu sala en "Mis reservas"',
-            'success'
-            
-          )
-        }
-      })
-}
-
 //// MOSTRAR TOAST DE SALA CREADA ////
-function mostrarToast(name){
+function showToast(name){
     let toast = document.getElementById("toast");
     toast.textContent = "Sala " + name + " reservada";
     toast.style.visibility = "visible";
@@ -295,7 +272,7 @@ function mostrarToast(name){
 }
 
 
-function cargar_Salas (){
+function load_rooms_search (){
 
     let salas = localStorage.getItem(clave_rs);
     

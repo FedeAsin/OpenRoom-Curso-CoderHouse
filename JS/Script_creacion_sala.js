@@ -1,7 +1,8 @@
 const clave_ls = "Salas guardadas";
+const clave_rs = "Salas_reservadas";
 let id = 0;
 let btn_crear = document.getElementById("btn");
-let conjuntoDeSalas = cargar_Salas();
+let conjuntoDeSalas = load_room();
 
 
 //// FORMULARIO ////
@@ -9,9 +10,9 @@ let conjuntoDeSalas = cargar_Salas();
 btn_crear.addEventListener("click",(e)=>{
     e.preventDefault();
     
-    if (validador()){
-        creador_Sala();
-        reseteador();
+    if (validator()){
+        create_room();
+        reset_form();
     }
 
 });
@@ -21,7 +22,7 @@ btn_crear.addEventListener("click",(e)=>{
 
 //// CARGAR SALAS ////
 
-function cargar_Salas (){
+function load_room (){
 
     let salas = localStorage.getItem(clave_ls);
     
@@ -32,8 +33,8 @@ function cargar_Salas (){
           for (let i = 0 ; i < salas.length; i++){
             let s = salas[i];
             Sala.newSala(s);
-            creadoraDe_Div (s.id,s.nombre,s.capacidad,s.piso,s.proyector);
-            ocultar_emptyState();
+            create_card(s.id,s.nombre,s.capacidad,s.piso,s.proyector);
+            hide_emptyState();
           }
           return salas;
     }
@@ -44,7 +45,7 @@ function cargar_Salas (){
 
 //// VALIDADOR DE DATOS ////
 
-    function validador(){
+    function validator(){
 
         let nuevoNombre = document.getElementById("input_name").value;
         let nuevaCapacidad = document.getElementById("input_guests").value;
@@ -116,7 +117,7 @@ function cargar_Salas (){
 
 ////CREADOR SALAS ////
 
-    function creador_Sala(){
+    function create_room(){
     
         let nuevoNombre = document.getElementById("input_name").value;
         let nuevaCapacidad = document.getElementById("input_guests").value;
@@ -129,9 +130,9 @@ function cargar_Salas (){
         conjuntoDeSalas.push(dato_salaNueva);
         localStorage.setItem(clave_ls, JSON.stringify(conjuntoDeSalas));
 
-        creadoraDe_Div(id,nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
-        ocultar_emptyState();
-        mostrarToast("Sala creada");
+        create_card(id,nuevoNombre,nuevaCapacidad,nuevoPiso,nuevoProyector);
+        hide_emptyState();
+        show_toast("Sala creada");
         
 
     }
@@ -139,7 +140,7 @@ function cargar_Salas (){
 
 //// CREADOR DE CARDS DE SALAS CREADAS ////
 
-function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
+function create_card (boxId,boxName,boxCapacity,boxLocation,boxProyector){
 
 
     let mostrarSalas = document.getElementById ("mostrarSalas");
@@ -147,6 +148,7 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
     let box = document.createElement("div");
     box.classList.add("box");
     box.setAttribute("box_id", boxId);
+
 
     //Nombre
     let nombreS = document.createElement("h2");
@@ -168,12 +170,10 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
     }else {
     proyectorS.textContent = "Sin proyector 🔴";
     }
-
     // Boton borrar //
     let btnDelete = document.createElement("button");
         btnDelete.textContent = "Eliminar sala";
         btnDelete.classList.add("btnDelete");
-        //box.querySelector("btnDelete");
 
 
         btnDelete.addEventListener("click", (event) =>{
@@ -186,7 +186,6 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
             cardToDelete.remove();
             //Eliminar la card en LocalStorage
             deleteInLocalStorage(cardID);
-            
         })
 
         function deleteInLocalStorage(id_sala){
@@ -211,7 +210,7 @@ function creadoraDe_Div (boxId,boxName,boxCapacity,boxLocation,boxProyector){
 
     //// Hover en card
     hover_button(btnDelete);
-    mostrar_salasYaCreadas();
+    show_createdRooms();
 }
 
 //// HOVER DE CARD ////
@@ -229,7 +228,7 @@ function hover_button(element){
     }        
 
 //// RESETEAR FORMULARIO ////
-function reseteador(){
+function reset_form(){
     
     document.getElementById("input_name").value = "";
     document.getElementById("input_location").value = "";
@@ -239,7 +238,7 @@ function reseteador(){
 }
 
 //// MOSTRAR TOAST DE SALA CREADA ////
-function mostrarToast(text){
+function show_toast(text){
     let toast = document.getElementById("toast");
     toast.textContent = text;
     toast.style.visibility = "visible";
@@ -252,19 +251,17 @@ function mostrarToast(text){
 }
 
 
-function mostrar_salasYaCreadas(){
+function show_createdRooms(){
     let eS = document.getElementById("salasCreadas");
     eS.style.visibility = "visible";
     eS.style.opacity = "1";
 }
 
-function ocultar_emptyState(){
+function hide_emptyState(){
     let eS = document.getElementById("emptyState");
     eS.style.visibility = "hidden";
     eS.style.opacity = "0";
 }
-
-
 
 
 
