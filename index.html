@@ -42,7 +42,7 @@
                             </svg></a>
                     </li>
                     <li>   
-                        <a href="" class="list_item_profile"><img src="img/Medium.svg" alt="Perfil"></a>
+                        <a href="" class="list_item_profile" id="avatarProfile"></a>
                     </li> 
                 </ul>    
             </nav>
@@ -55,9 +55,8 @@
 
 
                 <div class="input_form">
-                    <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" ="Fecha de reserva"></label> 
+                    <label for="fdate"><img src="img/CalendarBlank.svg" class="iconForm" alt="Fecha de reserva"></label> 
                     <p class="labelIcon">Día de reserva</p>
-
                         <select id="rDay" class="input_select">
                             <option value="lunes" >Lunes</option>
                             <option value="martes">Martes</option>
@@ -89,7 +88,7 @@
                 <div class="input_form"> 
                     <label for="guests"><img src="img/Users.svg" class="iconForm" alt="Cantidad de invitados"></label>
                     <p class="labelIcon">Cantidad de invitados</p>
-                        <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub">Personas</p>
+                        <input type="number" class="input_select" id="input_invitados" name="guests" min="1" max="20"><p class="labelIcon_sub"></p>
                 </div> 
 
                 <div class="input_form"> 
@@ -125,9 +124,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="JS/salas.js"></script>
     <script src="JS/Script_buscador_salas.js"></script>
-    <!--
-       
-    -->
+    <script src="JS/global.js"></script>
 </body>
 </html>
 
